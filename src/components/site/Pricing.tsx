@@ -103,7 +103,7 @@ export function Pricing() {
                   {row.values.map((v, i) => (
                     <td
                       key={i}
-                      className={`px-6 py-3.5 text-center ${tiers[i].featured ? "bg-accent/30" : ""}`}
+                      className={`px-6 py-3.5 text-center ${tiers[i]?.featured ? "bg-accent/30" : ""}`}
                     >
                       <Cell value={v} />
                     </td>
