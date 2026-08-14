@@ -15,7 +15,7 @@ export function ContactFooter() {
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const subject = `Cyber Risk Audit inquiry — ${form.company || form.domain || form.name}`;
+    const subject = `Cyber Risk Audit inquiry — ${form.domain || form.name}`;
     const body = [
       `Name: ${form.name}`,
       `Email: ${form.email}`,
