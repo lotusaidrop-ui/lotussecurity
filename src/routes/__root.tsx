@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import {
+  usePlausibleHashPageviews,
+  usePlausibleSectionTracking,
+} from "../lib/analytics";
 
 function NotFoundComponent() {
   return (
@@ -116,6 +120,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          defer
+          data-domain="lotussecurity.co.in"
+          src="https://plausible.io/js/script.outbound-links.file-downloads.js"
+        />
       </head>
       <body>
         {children}
@@ -125,13 +134,21 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function Analytics() {
+  usePlausibleHashPageviews();
+  usePlausibleSectionTracking();
+  return null;
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Analytics />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
 }
+
