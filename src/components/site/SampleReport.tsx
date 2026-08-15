@@ -1,5 +1,6 @@
-import { FileText, ListChecks, Gauge } from "lucide-react";
+import { FileText, ListChecks, Gauge, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import sampleReportAsset from "@/assets/sample-report.pdf.asset.json";
 
 const contents = [
   { icon: Gauge, label: "Overall risk score", note: "A single, defensible rating with the reasoning behind it." },
@@ -16,21 +17,22 @@ export function SampleReport() {
           <p className="mt-4 text-muted-foreground">
             Lotus Security is a new, specialized practice run by a credentialed security analyst
             focused entirely on professional service firms. Rather than asking you to take our word
-            for it, we would rather you read the work: request a redacted sample scorecard and judge
+            for it, we would rather you read the work: download a redacted sample scorecard and judge
             the depth, clarity, and usefulness for yourself.
           </p>
           <p className="mt-4 text-muted-foreground">
-            No sales call required — the sample arrives by email, and you decide from there.
+            No sales call required — the sample is a PDF you can view instantly.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col items-start gap-3">
             <Button variant="hero" size="xl" asChild>
-              <a href="mailto:lotusaidrop@gmail.com?subject=Sample%20Cyber%20Risk%20Audit%20report%20request">
-                Request a free sample report
+              <a href={sampleReportAsset.url} download target="_blank" rel="noopener noreferrer">
+                <Download className="size-5" aria-hidden="true" />
+                Download Sample Report (PDF)
               </a>
             </Button>
-            <Button variant="outline" size="xl" asChild>
-              <a href="#contact">Ask a question first</a>
-            </Button>
+            <p className="text-sm text-muted-foreground">
+              Sample report shown uses a fictional company for illustration.
+            </p>
           </div>
         </div>
 
@@ -59,3 +61,4 @@ export function SampleReport() {
     </section>
   );
 }
+
