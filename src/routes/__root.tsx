@@ -120,6 +120,11 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          defer
+          data-domain="lotussecurity.co.in"
+          src="https://plausible.io/js/script.outbound-links.file-downloads.js"
+        />
       </head>
       <body>
         {children}
