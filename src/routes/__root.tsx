@@ -107,13 +107,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
-    scripts: [
-      {
-        src: "https://plausible.io/js/script.outbound-links.file-downloads.js",
-        defer: true,
-        "data-domain": "lotussecurity.co.in",
-      },
-    ],
   }),
 
   shellComponent: RootShell,
