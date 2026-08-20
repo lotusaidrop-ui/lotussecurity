@@ -27,7 +27,14 @@ jobs:
     - name: Copy built files to docs folder
       run: |
         rm -rf docs/*
-        cp -r dist/* docs/
+        if [ -d ".output/public" ]; then
+          cp -r .output/public/* docs/
+        elif [ -d "dist" ]; then
+          cp -r dist/* docs/
+        else
+          echo "Build output not found"
+          exit 1
+        fi
 
     - name: Commit and push changes
       run: |
