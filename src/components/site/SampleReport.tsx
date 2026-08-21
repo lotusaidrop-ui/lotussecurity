@@ -1,6 +1,9 @@
 import { FileText, ListChecks, Gauge, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import sampleReportAsset from "@/assets/sample-report.pdf.asset.json";
+
+// Served from /public so the file works on any host (Lovable + custom domain).
+const SAMPLE_REPORT_URL = "/Lotus-Security-Sample-Cyber-Risk-Audit-Report.pdf";
+
 
 const contents = [
   { icon: Gauge, label: "Overall risk score", note: "A single, defensible rating with the reasoning behind it." },
