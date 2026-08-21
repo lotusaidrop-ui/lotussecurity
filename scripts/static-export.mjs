@@ -26,7 +26,7 @@ await mkdir(outDir, { recursive: true });
 await cp(clientDir, outDir, { recursive: true });
 
 for (const route of routes) {
-  const res = await handler.fetch(new Request(`https://lotussecurity.co.in${route}`));
+  const res = await handler.fetch(new Request(`https://lotussecurity.co.in${route}`), {}, { waitUntil() {}, passThroughOnException() {} });
   if (!res.ok) {
     console.error(`Failed to render ${route}: ${res.status} ${res.statusText}`);
     process.exit(1);
