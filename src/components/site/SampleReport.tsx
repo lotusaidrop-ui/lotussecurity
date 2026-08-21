@@ -28,7 +28,7 @@ export function SampleReport() {
           </p>
           <div className="mt-8 flex flex-col items-start gap-3">
             <Button variant="hero" size="xl" asChild>
-              <a href={sampleReportAsset.url} download target="_blank" rel="noopener noreferrer">
+              <a href={SAMPLE_REPORT_URL} download target="_blank" rel="noopener noreferrer">
                 <Download className="size-5" aria-hidden="true" />
                 Download Sample Report (PDF)
               </a>
